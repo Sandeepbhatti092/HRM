@@ -5,7 +5,6 @@ import com.getconfigdetails.ReadConfigDeatils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
-import org.omg.CORBA.TIMEOUT;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -39,7 +38,7 @@ public class GenericMethods extends Annotations {
             switch (property.getProperty("BROWSER").toLowerCase())
             {
                 case "chrome":
-                    WebDriverManager.chromedriver().setup();
+                   // WebDriverManager.chromedriver().setup();
                     driver=new ChromeDriver();
                     break;
                 case "firefox":
@@ -166,7 +165,7 @@ public class GenericMethods extends Annotations {
     public boolean waitForEementToBeClickable(String pageName, String elementName,WebElement element,int sec){
         boolean status=true;
         try{
-            WebDriverWait wait=new WebDriverWait(driver,sec);
+            WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(sec));
             wait.until(ExpectedConditions.elementToBeClickable(element));
 
         }catch(Exception e){
@@ -178,7 +177,7 @@ public class GenericMethods extends Annotations {
     public boolean waitForElementToDisplay(String pageName, String elementName,WebElement element,int sec){
         boolean status=true;
         try{
-            WebDriverWait wait=new WebDriverWait(driver,sec);
+            WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(sec));
             wait.until(ExpectedConditions.visibilityOf(element));
 
         }catch(Exception e){

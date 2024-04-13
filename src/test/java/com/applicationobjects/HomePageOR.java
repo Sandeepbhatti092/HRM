@@ -5,14 +5,13 @@ import org.openqa.selenium.support.FindBy;
 
 public class HomePageOR {
 
-    @FindBy(xpath = "//a[text()='Register']")
-   public WebElement lnk_Register;
+@FindBy(xpath="//input[@name='username']")
+    public WebElement userName;
 
-    @FindBy(xpath = "//a[text()='Log in']")
-   public  WebElement lnk_Login;
+    @FindBy(xpath="//input[@name='password']")
+    public WebElement passWord;
 
-    @FindBy(xpath = "//span[text()='Wishlist']/parent::a")
-   public WebElement lnk_WishList;
-
+    @FindBy(xpath="//button[@type='submit']")
+    public WebElement login;
 
 }
